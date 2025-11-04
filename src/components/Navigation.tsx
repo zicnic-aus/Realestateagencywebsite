@@ -8,7 +8,7 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="IMMD Realty" className="h-10" />
+            <img src={logo} alt="IMMD Realty" className="h-14" />
             <span className="text-gray-900" style={{ color: 'var(--brand-deep-blue)' }}>IMMD Realty</span>
           </div>
           
