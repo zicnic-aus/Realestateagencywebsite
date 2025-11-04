@@ -8,7 +8,7 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl text-gray-900 mb-6">
-              The Bridge to Your Property Dreams
+              IMMD - The Bridge to Your Property Dreams
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               Our brand represents trust, expertise, and the vital connection between people and their property dreams on both sides of every transaction.

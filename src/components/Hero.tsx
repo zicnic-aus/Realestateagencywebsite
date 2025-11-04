@@ -16,17 +16,17 @@ export function Hero() {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-white text-5xl md:text-6xl lg:text-7xl mb-4">
+            IMMD
+          </h1>
           <div className="mb-6">
             <p className="text-lg md:text-xl mb-2 tracking-wide" style={{ color: 'var(--brand-rich-gold)' }}>ONE AGENCY, EVERY ANGLE</p>
           </div>
-          <h1 className="text-white text-5xl md:text-6xl lg:text-7xl mb-6">
-            Bridging Dreams to Reality
-          </h1>
-          <p className="text-white/90 text-xl md:text-2xl mb-8 max-w-2xl">
+          <p className="text-white/90 text-xl md:text-2xl mb-8">
             We don't just buy and sell property — we help you build your future through smart real estate moves.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <InquiryForm defaultService="buyer">
               <Button size="lg" className="text-lg px-8 py-6 hover:opacity-90" style={{ backgroundColor: 'var(--brand-deep-blue)' }}>
                 Find Your Dream Home

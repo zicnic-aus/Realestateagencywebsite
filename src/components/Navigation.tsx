@@ -9,14 +9,15 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <img src={logo} alt="IMMD Realty" className="h-10" />
+            <span className="text-gray-900" style={{ color: 'var(--brand-deep-blue)' }}>IMMD Realty</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Services
-            </a>
             <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">
               About
+            </a>
+            <a href="#services" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Services
             </a>
             <a href="#properties" className="text-gray-600 hover:text-gray-900 transition-colors">
               Properties
