@@ -47,7 +47,7 @@ export function InquiryForm({ children, defaultService }: InquiryFormProps) {
       return;
     }
 
-    // In a real application, this would send the data to a server
+    // In a real application, this would send the data to info@immd.au
     console.log("Form submitted:", formData);
     toast.success("Thank you for your enquiry! We'll be in touch within 24 hours.");
     

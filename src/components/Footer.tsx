@@ -33,7 +33,7 @@ export function Footer() {
             <h4 className="mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
               <li>0411 317 102</li>
-              <li>info@immd.com.au</li>
+              <li>info@immd.au</li>
               <li>3 Explorers Road, White Rock, QLD 4306</li>
             </ul>
           </div>

@@ -33,7 +33,7 @@ export function Contact() {
             </div>
             <h3 className="text-lg text-gray-900 mb-2">Email</h3>
             <p className="text-gray-600">We'll respond within 24hrs</p>
-            <p className="mt-2" style={{ color: 'var(--brand-deep-blue)' }}>info@immd.com.au</p>
+            <p className="mt-2" style={{ color: 'var(--brand-deep-blue)' }}>info@immd.au</p>
           </Card>
           
           <Card className="p-6 text-center">
