@@ -1,5 +1,5 @@
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Award, TrendingUp, Home } from "lucide-react";
+import realtorImage from "figma:asset/dcd28b9316a5538f10ab3a732e9eb0d1f7cb3325.png";
 
 export function MeetTheRealtor() {
   return (
@@ -13,17 +13,17 @@ export function MeetTheRealtor() {
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Image Column */}
           <div className="order-2 lg:order-1">
-            <div className="relative">
+            <div className="relative max-w-md mx-auto lg:mx-0">
               <div className="absolute inset-0 rounded-lg translate-x-4 translate-y-4" style={{ backgroundColor: 'var(--brand-rich-gold)', opacity: 0.2 }}></div>
-              <ImageWithFallback 
-                src="https://images.unsplash.com/photo-1659100947220-48b5d5738148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjByZWFsdG9yJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYxMjI5MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              <img 
+                src={realtorImage}
                 alt="Isaac Nicol - Licensed Real Estate Agent"
-                className="relative rounded-lg shadow-xl w-full h-auto object-cover"
+                className="relative rounded-lg shadow-xl w-full h-auto object-cover max-h-[500px] object-top"
               />
             </div>
 
             {/* Key Highlights */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
+            <div className="grid grid-cols-3 gap-4 mt-8 max-w-md mx-auto lg:mx-0">
               <div className="bg-white p-4 rounded-lg shadow-md text-center">
                 <Award className="h-8 w-8 mx-auto mb-2" style={{ color: 'var(--brand-rich-gold)' }} />
                 <p className="text-sm text-gray-600">Licensed Agent</p>

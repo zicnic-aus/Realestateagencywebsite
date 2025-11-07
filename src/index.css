@@ -766,6 +766,10 @@
     max-height: 90vh;
   }
 
+  .max-h-\[500px\] {
+    max-height: 500px;
+  }
+
   .min-h-16 {
     min-height: calc(var(--spacing) * 16);
   }
@@ -1184,6 +1188,10 @@
 
   .object-cover {
     object-fit: cover;
+  }
+
+  .object-top {
+    object-position: top;
   }
 
   .p-1 {
@@ -2053,6 +2061,12 @@
   @media (width >= 64rem) {
     .lg\:order-2 {
       order: 2;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lg\:mx-0 {
+      margin-inline: calc(var(--spacing) * 0);
     }
   }
 
