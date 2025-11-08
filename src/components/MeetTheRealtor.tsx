@@ -1,5 +1,5 @@
 import { Award, TrendingUp, Home } from "lucide-react";
-import realtorImage from "figma:asset/dcd28b9316a5538f10ab3a732e9eb0d1f7cb3325.png";
+import realtorImage from "figma:asset/cc7bd5ec79587e04ef5a89f71a8cfb5077180568.png";
 
 export function MeetTheRealtor() {
   return (
