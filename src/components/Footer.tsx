@@ -41,7 +41,7 @@ export function Footer() {
         
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
           <p>&copy; 2025 IMMD Realty. All rights reserved.</p>
-          <p className="mt-2">ABN 91 966 472 481 | ACN 692 456 875</p>
+          <p className="mt-2">ABN 91 966 472 481 | ACN 692 465 875</p>
         </div>
       </div>
     </footer>
