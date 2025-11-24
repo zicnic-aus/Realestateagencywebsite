@@ -38,7 +38,7 @@ export function InquiryForm({ children, defaultService }: InquiryFormProps) {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate required fields
@@ -47,23 +47,75 @@ export function InquiryForm({ children, defaultService }: InquiryFormProps) {
       return;
     }
 
-    // In a real application, this would send the data to info@immd.au
-    console.log("Form submitted:", formData);
-    toast.success("Thank you for your enquiry! We'll be in touch within 24 hours.");
-    
-    // Close dialog and reset form
-    setOpen(false);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: defaultService || "",
-      propertyType: "",
-      budget: "",
-      location: "",
-      timeline: "",
-      message: "",
-    });
+    // Web3Forms configuration
+    // Get your access key from https://web3forms.com (free, just verify your email)
+    const accessKey = "7ef26cfe-372b-4e36-b261-6c0796226c8a";
+
+    // Check if Web3Forms is configured
+    if (accessKey === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
+      toast.error("Form service not configured. Please contact us at info@immd.au or call 0411 317 102");
+      console.error("Web3Forms not configured. Get your free access key at https://web3forms.com and update it in /components/InquiryForm.tsx");
+      return;
+    }
+
+    // Show loading state
+    toast.loading("Sending your enquiry...");
+
+    try {
+      // Prepare form data for Web3Forms
+      const formPayload = {
+        access_key: accessKey,
+        subject: `New Property Enquiry - ${formData.service}`,
+        from_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        property_type: formData.propertyType || 'Not specified',
+        budget: formData.budget || 'Not specified',
+        location: formData.location || 'Not specified',
+        timeline: formData.timeline || 'Not specified',
+        message: formData.message || 'No additional information provided',
+      };
+
+      console.log('Sending inquiry with Web3Forms');
+
+      // Send to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formPayload),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        toast.dismiss();
+        toast.success("Thank you for your enquiry! We'll be in touch within 24 hours.");
+        
+        // Close dialog and reset form
+        setOpen(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: defaultService || "",
+          propertyType: "",
+          budget: "",
+          location: "",
+          timeline: "",
+          message: "",
+        });
+      } else {
+        throw new Error(result.message || "Failed to send");
+      }
+    } catch (error) {
+      console.error("Error sending form:", error);
+      toast.dismiss();
+      toast.error("Failed to send enquiry. Please try again or contact us directly at info@immd.au");
+    }
   };
 
   const handleChange = (field: string, value: string) => {

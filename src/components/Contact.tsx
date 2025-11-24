@@ -3,6 +3,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { toast } from "sonner@2.0.3";
 
 export function Contact() {
   return (
@@ -48,19 +49,84 @@ export function Contact() {
         
         <Card id="contact-form" className="max-w-2xl mx-auto mt-12 p-8">
           <h3 className="text-2xl text-gray-900 mb-6 text-center">Send us a message</h3>
-          <form className="space-y-4">
+          <form 
+            className="space-y-4"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const firstName = formData.get('firstName') as string;
+              const lastName = formData.get('lastName') as string;
+              const email = formData.get('email') as string;
+              const phone = formData.get('phone') as string;
+              const message = formData.get('message') as string;
+              
+              // Web3Forms configuration
+              // Get your access key from https://web3forms.com (free, just verify your email)
+              const accessKey = "7ef26cfe-372b-4e36-b261-6c0796226c8a";
+
+              // Check if Web3Forms is configured
+              if (accessKey === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
+                toast.error("Form service not configured. Please contact us at info@immd.au or call 0411 317 102");
+                console.error("Web3Forms not configured. Get your free access key at https://web3forms.com and update it in /components/Contact.tsx");
+                return;
+              }
+
+              // Show loading state
+              toast.loading("Sending your message...");
+
+              try {
+                // Prepare form data for Web3Forms
+                const formPayload = {
+                  access_key: accessKey,
+                  subject: "New Contact Form Message - IMMD Realty",
+                  from_name: `${firstName} ${lastName}`,
+                  email: email,
+                  phone: phone,
+                  message: message,
+                };
+
+                console.log('Sending contact message with Web3Forms');
+
+                // Send to Web3Forms API
+                const response = await fetch("https://api.web3forms.com/submit", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                  },
+                  body: JSON.stringify(formPayload),
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                  toast.dismiss();
+                  toast.success("Thank you for your message! We'll be in touch within 24 hours.");
+                  
+                  // Reset form
+                  e.currentTarget.reset();
+                } else {
+                  throw new Error(result.message || "Failed to send");
+                }
+              } catch (error) {
+                console.error("Error sending form:", error);
+                toast.dismiss();
+                toast.error("Failed to send message. Please try again or contact us directly at info@immd.au");
+              }
+            }}
+          >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <Input placeholder="First Name" />
+                <Input name="firstName" placeholder="First Name" required />
               </div>
               <div>
-                <Input placeholder="Last Name" />
+                <Input name="lastName" placeholder="Last Name" required />
               </div>
             </div>
-            <Input type="email" placeholder="Email Address" />
-            <Input type="tel" placeholder="Phone Number" />
-            <Textarea placeholder="Tell us about your property needs..." rows={4} />
-            <Button className="w-full py-6 hover:opacity-90" style={{ backgroundColor: 'var(--brand-deep-blue)' }}>
+            <Input name="email" type="email" placeholder="Email Address" required />
+            <Input name="phone" type="tel" placeholder="Phone Number" required />
+            <Textarea name="message" placeholder="Tell us about your property needs..." rows={4} required />
+            <Button type="submit" className="w-full py-6 hover:opacity-90" style={{ backgroundColor: 'var(--brand-deep-blue)' }}>
               Send Message
             </Button>
           </form>
