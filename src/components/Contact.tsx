@@ -4,8 +4,11 @@ import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { toast } from "sonner@2.0.3";
+import { useRef } from "react";
 
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,6 +53,7 @@ export function Contact() {
         <Card id="contact-form" className="max-w-2xl mx-auto mt-12 p-8">
           <h3 className="text-2xl text-gray-900 mb-6 text-center">Send us a message</h3>
           <form 
+            ref={formRef}
             className="space-y-4"
             onSubmit={async (e) => {
               e.preventDefault();
@@ -103,8 +107,10 @@ export function Contact() {
                   toast.dismiss();
                   toast.success("Thank you for your message! We'll be in touch within 24 hours.");
                   
-                  // Reset form
-                  e.currentTarget.reset();
+                  // Reset form using ref
+                  if (formRef.current) {
+                    formRef.current.reset();
+                  }
                 } else {
                   throw new Error(result.message || "Failed to send");
                 }
