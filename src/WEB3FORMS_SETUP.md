@@ -1,6 +1,6 @@
 # Web3Forms Setup Guide for IMMD Realty
 
-Web3Forms is a simple, reliable form backend service that sends form submissions directly to your email (info@immd.au). It requires no complex template configuration - just an access key!
+Web3Forms is a simple, reliable form backend service that sends form submissions directly to your email (info@immd.odoo.com). It requires no complex template configuration - just an access key!
 
 ## Why Web3Forms?
 
@@ -17,13 +17,13 @@ Web3Forms is a simple, reliable form backend service that sends form submissions
 
 1. Go to https://web3forms.com
 2. Click "Get Started for Free"
-3. Enter your email address: **info@immd.au**
+3. Enter your email address: **info@immd.odoo.com**
 4. Click "Create Access Key"
 5. Check your email inbox for the verification email
 6. Click the verification link in the email
 7. Copy your Access Key (it looks like: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)
 
-✅ **COMPLETED** - Your access key: `7ef26cfe-372b-4e36-b261-6c0796226c8a`
+✅ **COMPLETED** - Your access key: `b371f800-fa57-4bfa-9c13-e6e433aeb642`
 
 ### Step 2: Update Your Website
 
@@ -33,14 +33,14 @@ Web3Forms is a simple, reliable form backend service that sends form submissions
 
 Find this line (around line 49):
 ```javascript
-const accessKey = "7ef26cfe-372b-4e36-b261-6c0796226c8a";
+const accessKey = "b371f800-fa57-4bfa-9c13-e6e433aeb642";
 ```
 
 #### File 2: `/components/Contact.tsx`
 
 Find this line (around line 67):
 ```javascript
-const accessKey = "7ef26cfe-372b-4e36-b261-6c0796226c8a";
+const accessKey = "b371f800-fa57-4bfa-9c13-e6e433aeb642";
 ```
 
 ### Step 3: Test Your Forms
@@ -48,7 +48,7 @@ const accessKey = "7ef26cfe-372b-4e36-b261-6c0796226c8a";
 1. Visit your website
 2. Fill out either the contact form or inquiry form
 3. Click Submit
-4. Check your email at info@immd.au
+4. Check your email at info@immd.odoo.com
 5. You should receive a well-formatted email with all form details!
 
 ## What You'll Receive
@@ -111,7 +111,7 @@ Add to the dashboard at https://web3forms.com/dashboard after logging in with yo
 
 ### Form Shows Error Message?
 
-- Your access key `7ef26cfe-372b-4e36-b261-6c0796226c8a` is already configured in both files
+- Your access key `b371f800-fa57-4bfa-9c13-e6e433aeb642` is already configured in both files
 - Verify your access key is active (check email for verification)
 - Check browser console for specific error messages
 
@@ -141,4 +141,4 @@ The old EmailJS configuration has been completely replaced with Web3Forms. You c
 - `/EMAILJS_TEMPLATE_SETUP.md`
 - `/EMAIL_SETUP.md`
 
-All form submissions will now go directly to info@immd.au with better formatting and reliability.
+All form submissions will now go directly to info@immd.odoo.com with better formatting and reliability.

@@ -66,7 +66,7 @@ export function Contact() {
               
               // Web3Forms configuration
               // Get your access key from https://web3forms.com (free, just verify your email)
-              const accessKey = "7ef26cfe-372b-4e36-b261-6c0796226c8a";
+              const accessKey = "b371f800-fa57-4bfa-9c13-e6e433aeb642";
 
               // Check if Web3Forms is configured
               if (accessKey === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
@@ -87,7 +87,6 @@ export function Contact() {
                   email: email,
                   phone: phone,
                   message: message,
-                  to_email: "info@immd.odoo.com", // Destination email
                 };
 
                 console.log('Sending contact message with Web3Forms');
