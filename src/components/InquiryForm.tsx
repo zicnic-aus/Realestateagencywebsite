@@ -53,7 +53,7 @@ export function InquiryForm({ children, defaultService }: InquiryFormProps) {
 
     // Check if Web3Forms is configured
     if (accessKey === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
-      toast.error("Form service not configured. Please contact us at info@immd.odoo.com or call 0411 317 102");
+      toast.error("Form service not configured. Please contact us at info@immd.au or call 0411 317 102");
       console.error("Web3Forms not configured. Get your free access key at https://web3forms.com and update it in /components/InquiryForm.tsx");
       return;
     }
@@ -75,6 +75,7 @@ export function InquiryForm({ children, defaultService }: InquiryFormProps) {
         location: formData.location || 'Not specified',
         timeline: formData.timeline || 'Not specified',
         message: formData.message || 'No additional information provided',
+        to_email: "info@immd.odoo.com", // Destination email
       };
 
       console.log('Sending inquiry with Web3Forms');
@@ -114,7 +115,7 @@ export function InquiryForm({ children, defaultService }: InquiryFormProps) {
     } catch (error) {
       console.error("Error sending form:", error);
       toast.dismiss();
-      toast.error("Failed to send enquiry. Please try again or contact us directly at info@immd.odoo.com");
+      toast.error("Failed to send enquiry. Please try again or contact us directly at info@immd.au");
     }
   };
 
